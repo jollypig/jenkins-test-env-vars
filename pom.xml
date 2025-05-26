@@ -10,7 +10,7 @@
   </parent>
 
   <groupId>io.jenkins.plugins</groupId>
-  <artifactId>jenkins-test-env-vars</artifactId>
+  <artifactId>test-env-vars</artifactId>
   <version>${revision}${changelist}</version>
   <packaging>hpi</packaging>
 
