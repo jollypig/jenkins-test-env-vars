@@ -1,2 +1,2 @@
 _extends: .github
-tag-template: jenkins-1st-$NEXT_MINOR_VERSION
+tag-template: jenkins-test-env-vars-$NEXT_MINOR_VERSION
