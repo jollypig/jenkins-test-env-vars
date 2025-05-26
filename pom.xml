@@ -5,17 +5,17 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>4.85</version>
+    <version>5.12</version>
     <relativePath />
   </parent>
 
   <groupId>io.jenkins.plugins</groupId>
-  <artifactId>jenkins-test-env-vars</artifactId>
+  <artifactId>test-env-vars</artifactId>
   <version>${revision}${changelist}</version>
   <packaging>hpi</packaging>
 
   <name>Test Evn Vars Plugin</name>
-  <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
+  <url>https://github.com/jenkinsci/jenkins-${project.artifactId}-plugin</url>
   <licenses>
     <license>
       <name>MIT License</name>
@@ -32,31 +32,27 @@
   <properties>
     <revision>0.1</revision>
     <changelist>-SNAPSHOT</changelist>
-
     <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
-    <jenkins.version>2.440.3</jenkins.version>
-    <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
+    <jenkins.baseline>2.479</jenkins.baseline>
+    <jenkins.version>${jenkins.baseline}.3</jenkins.version>
+    <gitHubRepo>jenkinsci/jenkins-${project.artifactId}-plugin</gitHubRepo>
 
     <spotless.check.skip>false</spotless.check.skip>
+    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.release>21</maven.compiler.release>
+    <maven.compiler.testRelease>${maven.compiler.release}</maven.compiler.testRelease>
+    <java.version>21</java.version>
   </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <!-- Pick up common dependencies for the selected LTS line: https://github.com/jenkinsci/bom#usage -->
-        <groupId>io.jenkins.tools.bom</groupId>
-        <artifactId>bom-2.440.x</artifactId>
-        <version>3193.v330d8248d39e</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>org.jenkins-ci.plugins</groupId>
-      <artifactId>structs</artifactId>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
     </dependency>
+    <!-- Working with Pipeline -->
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-basic-steps</artifactId>
@@ -77,7 +73,25 @@
       <artifactId>workflow-job</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>credentials</artifactId>
+      <optional>true</optional>
+    </dependency>
   </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.jenkins.tools.bom</groupId>
+        <artifactId>bom-${jenkins.baseline}.x</artifactId>
+        <version>4628.v2b_234a_1a_20d0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <repositories>
     <repository>
