@@ -10,12 +10,12 @@
   </parent>
 
   <groupId>io.jenkins.plugins</groupId>
-  <artifactId>test-env-vars</artifactId>
+  <artifactId>jenkins-test-env-vars</artifactId>
   <version>${revision}${changelist}</version>
   <packaging>hpi</packaging>
 
   <name>Test Evn Vars Plugin</name>
-  <url>https://github.com/jenkinsci/jenkins-${project.artifactId}-plugin</url>
+  <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
   <licenses>
     <license>
       <name>MIT License</name>
@@ -35,11 +35,9 @@
     <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
     <jenkins.baseline>2.479</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.3</jenkins.version>
-    <gitHubRepo>jenkinsci/jenkins-${project.artifactId}-plugin</gitHubRepo>
+    <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
 
     <spotless.check.skip>false</spotless.check.skip>
-    <maven.compiler.target>21</maven.compiler.target>
-    <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.release>21</maven.compiler.release>
     <maven.compiler.testRelease>${maven.compiler.release}</maven.compiler.testRelease>
     <java.version>21</java.version>
@@ -86,7 +84,7 @@
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
         <artifactId>bom-${jenkins.baseline}.x</artifactId>
-        <version>4628.v2b_234a_1a_20d0</version>
+        <version>4770.v9a_2b_7a_9d8b_7f</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
